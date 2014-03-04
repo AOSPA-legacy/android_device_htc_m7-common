@@ -20,10 +20,6 @@ $(call inherit-product, device/htc/msm8960-common/msm8960.mk)
 # overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
-# Boot animation
-TARGET_SCREEN_HEIGHT := 1920
-TARGET_SCREEN_WIDTH := 1080
-
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
@@ -124,10 +120,6 @@ PRODUCT_PACKAGES += \
     Tag \
     com.android.nfc_extras
 
-# Misc Packages
-PRODUCT_PACKAGES += \
-    Torch
-
 # Prepatch to fix BT/WiFi bus lockups
 PRODUCT_COPY_FILES += \
     device/htc/m7-common/bluetooth/bcm4335_prepatch.hcd:system/vendor/firmware/bcm4335_prepatch.hcd
@@ -171,6 +163,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.call_ring.multiple=false \
     ro.telephony.call_ring.delay=3000 \
     ro.vendor.extension_library=/system/vendor/lib/libqc-opt.so
+
+PRODUCT_PACKAGES += \
+    CMFileManager
 
 # Set build date
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
